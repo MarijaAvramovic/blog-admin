@@ -24,7 +24,6 @@ function Login({ onLoginSuccess }) {
       const data = await res.json();
 
       if (res.ok && data.token) {
-        localStorage.setItem('adminToken', data.token);
         onLoginSuccess(data.token);
       } else {
         setError(data.error || 'Login failed');

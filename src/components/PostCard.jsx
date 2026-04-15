@@ -1,5 +1,5 @@
 // src/components/PostCard.jsx
-import { useNavigate } from 'react-router-dom';   // We'll add routing later
+import { useNavigate } from 'react-router-dom';
 
 function PostCard({ post }) {
   const navigate = useNavigate();
