@@ -4,25 +4,51 @@ import PostCard from './PostCard';
 
 function Dashboard({ onLogout }) {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('adminToken');
 
   useEffect(() => {
     const loadPosts = async () => {
+      if (!token) {
+        console.error("No token found");
+        setLoading(false);
+        return;
+      }
+
       try {
+        console.log("Fetching posts with token:", token.substring(0, 20) + "...");
+
         const res = await fetch('http://localhost:4100/api/posts/admin', {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { 
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
         });
+
+        console.log("Response status:", res.status);
+
         const data = await res.json();
+        console.log("Full response from backend:", data);   // ← THIS IS THE IMPORTANT ONE
+
         if (data.success) {
+          console.log(`Received ${data.posts?.length || 0} posts`);
           setPosts(data.posts || []);
+        } else {
+          console.error("Backend returned success: false", data);
         }
       } catch (err) {
-        console.error(err);
+        console.error("Fetch error:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
-    if (token) loadPosts();
+    loadPosts();
   }, [token]);
+
+  if (loading) {
+    return <p style={{ textAlign: 'center', padding: '50px' }}>Loading posts...</p>;
+  }
 
   return (
     <div className="app-container">
