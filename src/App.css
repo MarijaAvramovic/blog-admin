@@ -1,142 +1,192 @@
-/* src/App.css */
+/* src/App.css - Clean & Modern Admin Dashboard */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* ====================== LOGIN PAGE ====================== */
+.login-container {
+  max-width: 420px;
+  margin: 120px auto;
+  padding: 40px 35px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.login-container h1 {
+  font-size: 2.4rem;
+  color: #e63939;
+  margin-bottom: 8px;
+}
+
+.login-container p {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.05rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1.05rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #f77f00;
+  box-shadow: 0 0 0 4px rgba(247, 127, 0, 0.15);
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #e63939, #f77f00);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #f77f00, #ffb700);
+  transform: translateY(-2px);
+}
+
+.error {
+  color: #e63939;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+/* ====================== DASHBOARD ====================== */
 .app-container {
-  font-family: 'Arial', sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 20px;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
   border-bottom: 2px solid #eee;
+  margin-bottom: 30px;
 }
 
 header h1 {
   color: #e63939;
-  font-size: 2.2rem;
+  font-size: 2.3rem;
 }
 
 .logout-btn {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: #555;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 16px;
+  transition: background 0.3s;
 }
 
 .logout-btn:hover {
   background-color: #333;
 }
 
-/* Login Form */
-.login-container {
-  max-width: 420px;
-  margin: 100px auto;
-  padding: 40px 30px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  text-align: center;
-  background: white;
-}
-
-.login-container h1 {
-  color: #e63939;
-  margin-bottom: 10px;
-}
-
-.login-container p {
-  color: #666;
+/* Posts Grid */
+h2 {
   margin-bottom: 25px;
-}
-
-.form-group {
-  margin-bottom: 18px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
   color: #444;
+  font-size: 1.8rem;
 }
 
-.form-group input {
-  width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-}
-
-.form-group input:focus {
-  border-color: #f77f00;
-  outline: none;
-}
-
-.login-btn {
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(to right, #e63939, #f77f00);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 17px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.login-btn:hover {
-  background: linear-gradient(to right, #f77f00, #ffb700);
-}
-
-.error {
-  color: red;
-  margin-top: 15px;
-}
-
-/* Dashboard */
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
 }
 
 .post-card {
   background: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.post-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(230, 57, 57, 0.15);
 }
 
 .post-card h3 {
-  margin-bottom: 10px;
-  color: #333;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  color: #2c3e50;
+  line-height: 1.4;
 }
 
 .post-card .status {
-  font-weight: bold;
-  margin: 10px 0;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
 .post-card .status.published {
-  color: #2e7d32;
+  background-color: #d4edda;
+  color: #155724;
 }
 
 .post-card .status.draft {
-  color: #d32f2f;
+  background-color: #f8d7da;
+  color: #721c24;
 }
 
 .post-card p {
   color: #555;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #888;
+  font-size: 1.1rem;
 }
