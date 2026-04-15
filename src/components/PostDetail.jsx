@@ -102,6 +102,29 @@ function PostDetail() {
     }
   };
 
+
+  const deletePost = async () => {
+    if (!window.confirm('Delete this post?')) return;
+
+    try {
+    const res = await fetch(`${API_BASE}/api/posts/${id}`, {   // ← add "const res ="
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` }
+      });
+      if (res.ok) {
+        alert('Post deleted successfully!');
+        navigate('/');        // Go back to dashboard
+      } else {
+        const errorData = await res.json().catch(() => ({}));
+      alert(`Failed to delete post: ${errorData.message || res.status}`);
+      }
+    }
+       
+      catch (err) {
+      alert('Failed to delete post');
+    }
+  };
+
   if (loading) return <p style={{ textAlign: 'center', padding: '50px' }}>Loading post...</p>;
   if (!post) return <p style={{ textAlign: 'center', padding: '50px' }}>Post not found.</p>;
 
@@ -129,12 +152,16 @@ function PostDetail() {
 
       <div className="actions">
         <button onClick={saveChanges} className="save-btn">Save Changes</button>
+     
         <button 
           onClick={togglePublish}
           className={`publish-btn ${published ? 'unpublish' : 'publish'}`}
         >
           {published ? 'Unpublish' : 'Publish Now'}
         </button>
+
+   <button onClick={deletePost} className="delete-post-btn">DELETE POST</button>
+
       </div>
 
       <h2>Comments ({comments.length})</h2>

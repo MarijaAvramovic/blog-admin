@@ -294,3 +294,16 @@ h2 {
   cursor: pointer;
   font-size: 0.9rem;
 }
+.delete-post-btn {
+  padding: 12px 24px;
+  background: #e63939;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-post-btn:hover {
+  background: #c0392b;
+}
