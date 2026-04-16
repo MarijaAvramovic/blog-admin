@@ -1,11 +1,15 @@
 // src/components/Dashboard.jsx
 import { useState, useEffect } from 'react';
 import PostCard from './PostCard';
+import { useNavigate } from 'react-router-dom';
+
+ 
 
 function Dashboard({ onLogout }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('adminToken');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -18,7 +22,7 @@ function Dashboard({ onLogout }) {
       try {
         console.log("Fetching posts with token:", token.substring(0, 20) + "...");
 
-        const res = await fetch('http://localhost:4100/api/posts/admin', {
+        const res = await fetch('https://blog-api-wwtw.onrender.com/api/posts/admin', {
           headers: { 
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -54,6 +58,9 @@ function Dashboard({ onLogout }) {
     <div className="app-container">
       <header>
         <h1>Admin Dashboard</h1>
+          <button onClick={() => navigate('/new-post')} className="create-btn">
+      + New Post
+    </button>
         <button onClick={onLogout} className="logout-btn">Logout</button>
       </header>
 

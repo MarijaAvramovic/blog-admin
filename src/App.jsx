@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
+import NewPost from './components/NewPost';
 
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
@@ -21,28 +22,36 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        {/* Home - Dashboard */}
-        <Route 
-          path="/" 
-          element={
-            token ? (
-              <Dashboard onLogout={handleLogout} />
-            ) : (
-              <Login onLoginSuccess={handleLoginSuccess} />
-            )
-          } 
-        />
+  <Routes>
+    {/* Dashboard */}
+    <Route 
+      path="/" 
+      element={
+        token ? (
+          <Dashboard onLogout={handleLogout} />
+        ) : (
+          <Login onLoginSuccess={handleLoginSuccess} />
+        )
+      } 
+    />
 
-        {/* Single Post Detail */}
-        <Route 
-          path="/post/:id" 
-          element={
-            token ? <PostDetail /> : <Login onLoginSuccess={handleLoginSuccess} />
-          } 
-        />
-      </Routes>
-    </Router>
+    {/* Post Detail */}
+    <Route 
+      path="/post/:id" 
+      element={
+        token ? <PostDetail /> : <Login onLoginSuccess={handleLoginSuccess} />
+      } 
+    />
+
+    {/* ✅ New Post Route */}
+    <Route 
+      path="/new-post" 
+      element={
+        token ? <NewPost /> : <Login onLoginSuccess={handleLoginSuccess} />
+      } 
+    />
+  </Routes>
+</Router>
   );
 }
 

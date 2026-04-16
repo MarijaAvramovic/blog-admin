@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const API_BASE = 'http://localhost:4100';
+const API_BASE = 'https://blog-api-wwtw.onrender.com';  
 
 function PostDetail() {
   const { id } = useParams();

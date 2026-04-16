@@ -307,3 +307,117 @@ h2 {
 .delete-post-btn:hover {
   background: #c0392b;
 }
+/* ====================== CREATE POST BUTTON ====================== */
+.create-btn {
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #ff3c3c, #ff8c00);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.create-btn:hover {
+  background: linear-gradient(135deg, #ff8c00, #ffb700);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(255, 60, 60, 0.35);
+}
+
+.create-btn:active {
+  transform: scale(0.98);
+}
+/* ====================== NEW POST PAGE (DARK MODE) ====================== */
+.new-post-container {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a1a1a, #000000);
+  color: #f5f5f5;
+  padding: 40px 20px;
+}
+
+.new-post-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: #ff3c3c;
+  text-align: center;
+}
+
+/* Form wrapper */
+.new-post-container form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #111;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(255, 60, 60, 0.15);
+  border: 1px solid #222;
+}
+
+.new-post-container .edit-input,
+.new-post-container .edit-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: #1c1c1c;
+  border: 2px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  transition: all 0.3s;
+}
+
+.new-post-container .edit-input:focus,
+.new-post-container .edit-textarea:focus {
+  border-color: #ff3c3c;
+  box-shadow: 0 0 0 3px rgba(255, 60, 60, 0.2);
+  outline: none;
+}
+/* Actions row */
+.new-post-container .actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Cancel */
+.cancel-btn {
+  background: transparent;
+  border: 1px solid #666;
+  color: #aaa;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cancel-btn:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* Create */
+.new-post-container .save-btn {
+  background: linear-gradient(135deg, #ff3c3c, #ff8c00);
+  color: white;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.new-post-container .save-btn:hover {
+  background: linear-gradient(135deg, #ff8c00, #ffb700);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 60, 60, 0.3);
+}
+
+.new-post-container .save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
