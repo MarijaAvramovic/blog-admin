@@ -68,10 +68,15 @@ function Login({ onLoginSuccess }) {
         </button>
       </form>
 
-      <a href="https://marijaavramovic.github.io/blog-public/index.html">Home (Public)</a>
+      
 
       {error && <p className="error">{error}</p>}
+
+      <div className="home-public-btn">
+         <a href="https://marijaavramovic.github.io/blog-public/index.html">Home (Public)</a>
+      </div>
     </div>
+
   );
 }
 

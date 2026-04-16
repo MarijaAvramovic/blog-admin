@@ -82,6 +82,25 @@ body {
   transform: translateY(-2px);
 }
 
+
+.home-public-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #4c2b97, #160b4a);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+
+.home-public-btn:hover {
+  background: linear-gradient(135deg, #f77f00, #ffb700);
+  transform: translateY(-2px);
+}
 .error {
   color: #e63939;
   margin-top: 15px;
